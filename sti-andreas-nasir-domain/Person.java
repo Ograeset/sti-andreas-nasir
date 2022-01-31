@@ -30,7 +30,7 @@ public abstract class Person {
         return ssNumber;
     }
 
-    public List<Course> getCourses() {
+    /*public List<Course> getCourses() {
         return courses;
-    }
+    }*/
 }
