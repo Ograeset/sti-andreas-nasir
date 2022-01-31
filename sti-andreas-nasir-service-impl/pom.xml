@@ -13,4 +13,19 @@
     <artifactId>sti-andreas-nasir-service-impl</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>se.sti</groupId>
+            <artifactId>sti-andreas-nasir-dao</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>se.sti</groupId>
+            <artifactId>sti-andreas-nasir-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>se.sti</groupId>
+            <artifactId>sti-andreas-nasir-service</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sti-andreas-nasir-service-impl" />
+        <module name="sti-andreas-nasir-dao-impl" />
         <module name="sti-andreas-nasir-domain" />
         <module name="sti-andreas-nasir-test-unit" />
+        <module name="sti-andreas-nasir-dao" />
         <module name="sti-andreas-nasir-service" />
       </profile>
     </annotationProcessing>
