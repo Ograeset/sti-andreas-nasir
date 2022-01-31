@@ -5,11 +5,11 @@ import java.util.List;
 public class Teacher extends Person {
     private int hourlyWage;
 
-    public Teacher (String firstName, String lastName, int ssNumber, Course course, int hourlyWage){
+    public Teacher (String firstName, String lastName, int ssNumber, List<Course> courses, int hourlyWage){
         setFirstName(firstName);
         setLastName(lastName);
         setSsNumber(ssNumber);
-        setCourses(course);
+        setCourses(courses);
         setHourlyWage(hourlyWage);
     }
 
