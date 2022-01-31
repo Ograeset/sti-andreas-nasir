@@ -1,3 +1,5 @@
+package sti.andreas.nasir.domain;
+
 public class Teacher extends Person {
     private int hourlyWage;
 

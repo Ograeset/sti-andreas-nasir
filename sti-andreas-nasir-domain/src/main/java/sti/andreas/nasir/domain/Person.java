@@ -1,3 +1,5 @@
+package sti.andreas.nasir.domain;
+
 import java.util.List;
 
 public abstract class Person {
