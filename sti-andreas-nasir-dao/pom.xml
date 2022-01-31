@@ -11,9 +11,16 @@
     </parent>
 
 
-    <artifactId>sti-andreas-nasir-service</artifactId>
+    <artifactId>sti-andreas-nasir-dao</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>se.sti</groupId>
+            <artifactId>sti-andreas-nasir-domain</artifactId>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

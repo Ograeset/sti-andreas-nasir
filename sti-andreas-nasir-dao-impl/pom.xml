@@ -10,10 +10,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
-    <artifactId>sti-andreas-nasir-service</artifactId>
+    <artifactId>sti-andreas-nasir-dao-impl</artifactId>
     <packaging>jar</packaging>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>se.sti</groupId>
+            <artifactId>sti-andreas-nasir-dao</artifactId>
+
+        </dependency>
+    </dependencies>
 
 </project>
