@@ -1,3 +1,9 @@
+<<<<<<< HEAD:sti-andreas-nasir-domain/src/main/java/sti/andreas/nasir/domain/Person.java
+=======
+package sti.andreas.nasir.domain;
+
+import java.util.List;
+>>>>>>> 885381594e45dc2771fe139bc68498050d1ba3a8:sti-andreas-nasir-domain/Person.java
 
 package sti.andreas.nasir.domain;
 
