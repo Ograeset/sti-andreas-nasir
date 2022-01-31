@@ -16,7 +16,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>se.sti</groupId>
+            <groupId>org.sti</groupId>
             <artifactId>sti-andreas-nasir-dao</artifactId>
 
         </dependency>
