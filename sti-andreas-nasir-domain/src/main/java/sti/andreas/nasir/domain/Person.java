@@ -1,5 +1,7 @@
-import java.util.List;
 
+package sti.andreas.nasir.domain;
+
+import java.util.List;
 public abstract class Person {
     private String firstName;
     private String lastName;
