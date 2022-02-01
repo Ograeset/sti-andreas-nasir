@@ -2,6 +2,7 @@
 package sti.andreas.nasir.domain;
 
 import java.util.List;
+
 public abstract class Person {
     private String firstName;
     private String lastName;
@@ -17,22 +18,16 @@ public abstract class Person {
     public void setSsNumber(int ssNumber){
         this.ssNumber = ssNumber;
     }
-    public void setCourses(Course course){
-        this.courses.add(course);
-    }
+    public void setCourses(List<Course> courses){ this.courses = courses;}
+
     public String getFirstName(){
         return firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public int getSsNumber() {
         return ssNumber;
     }
-
-    /*public List<Course> getCourses() {
-        return courses;
-    }*/
+    public List<Course> getCourses() {return courses; }
 }
