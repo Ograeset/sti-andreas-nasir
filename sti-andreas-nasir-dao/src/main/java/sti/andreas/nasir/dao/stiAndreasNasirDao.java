@@ -10,11 +10,11 @@ public interface stiAndreasNasirDao {
 
     Teacher addTeacher(String firstName, String lastName, int ssNumber, List<Course> courses, int hourlyWage);
 
-    boolean deleteTeacher(String firstName, String lastName, int ssNumber, List<Course> courses, int hourlyWage);
+    boolean deleteTeacher(int ssNumber);
 
-    Student addStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
+    boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
 
-    boolean deleteStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
+    boolean deleteStudent(int ssNumber);
 
 
 }
