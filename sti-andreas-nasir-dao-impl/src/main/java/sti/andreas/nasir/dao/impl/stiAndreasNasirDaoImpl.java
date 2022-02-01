@@ -55,6 +55,18 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
     @Override
     public boolean deleteStudent(int ssNumber) {
-        return false;
+        final String DELETE_STUDENT_SQL = "DELETE FROM Student WHERE ID = " + ssNumber;
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(DELETE_STUDENT_SQL);
+
+            int rows = preparedStatement.executeUpdate();
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+        }
+
+        return true;
     }
 }
