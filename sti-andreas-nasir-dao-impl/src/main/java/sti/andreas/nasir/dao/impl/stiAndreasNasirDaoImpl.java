@@ -100,4 +100,42 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
         return true;
     }
+
+    @Override
+    public Course addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode) {
+        final String ADD_COURSE_SQL = "INSERT INTO Course(courseCode, credits, hours) VALUES(?, ?, ?)";
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(ADD_COURSE_SQL);
+
+            preparedStatement.setString(1, courseCode);
+            preparedStatement.setInt(2, credits);
+            preparedStatement.setInt(3, lengthOfCourse);
+
+            int rows = preparedStatement.executeUpdate();
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+        }
+
+        return new Course(credits, lengthOfCourse, teacher, courseCode);
+
+    }
+
+    public boolean deleteCourse(String courseCode){
+        final String DELETE_COURSE_SQL = "DELETE FROM Course WHERE courseId = " + courseCode;
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(DELETE_COURSE_SQL);
+
+            int rows = preparedStatement.executeUpdate();
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+        }
+
+        return true;
+    }
 }
