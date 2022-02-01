@@ -1,7 +1,10 @@
 package sti.andreas.nasir.dao;
 
+import sti.andreas.nasir.domain.Course;
 import sti.andreas.nasir.domain.Student;
 import sti.andreas.nasir.domain.Teacher;
+
+import java.util.List;
 
 public interface stiAndreasNasirDao {
 
