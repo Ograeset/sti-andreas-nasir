@@ -1,4 +1,5 @@
 package sti.andreas.nasir.dao;
+import sti.andreas.nasir.domain.*;
 
 import sti.andreas.nasir.domain.Student;
 import sti.andreas.nasir.domain.Teacher;
