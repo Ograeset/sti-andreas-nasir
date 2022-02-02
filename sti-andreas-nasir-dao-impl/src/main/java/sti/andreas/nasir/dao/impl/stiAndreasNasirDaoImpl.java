@@ -2,13 +2,11 @@ package sti.andreas.nasir.dao.impl;
 
 import sti.andreas.nasir.dao.stiAndreasNasirDao;
 import sti.andreas.nasir.domain.Course;
+import sti.andreas.nasir.domain.Person;
 import sti.andreas.nasir.domain.Student;
 import sti.andreas.nasir.domain.Teacher;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
@@ -93,6 +91,32 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
             preparedStatement = connection.prepareStatement(DELETE_STUDENT_SQL);
 
             int rows = preparedStatement.executeUpdate();
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+        }
+
+        return true;
+    }
+
+    @Override
+    public Student getStudent(int ssNumber) {
+        final String GET_STUDENT_SQL = "SELECT * FROM Student WHERE ID = " + ssNumber;
+        String firstName,lastName;
+        List<Course> courses;
+
+        try {
+
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(GET_STUDENT_SQL);
+            ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_SQL);
+
+            while(rs.next()){
+
+                firstName = (rs.getString(2));
+                lastName  = (rs.getString(3));
+
+            }
 
         } catch (SQLException sqlException) {
             System.err.println("Sql error");
