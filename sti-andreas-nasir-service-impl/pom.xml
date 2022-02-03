@@ -32,6 +32,12 @@
             <artifactId>sti-andreas-nasir-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.sti</groupId>
+            <artifactId>sti-andreas-nasir-dao-impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 

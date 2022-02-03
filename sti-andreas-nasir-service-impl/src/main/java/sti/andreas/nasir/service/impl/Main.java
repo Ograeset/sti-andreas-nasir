@@ -9,6 +9,8 @@ public class Main {
         this.stiService = stiService;
     }
     public static void main(String[] args) {
+        Main main = new Main((StiService) new StiServiceImpl());
+
 
     }
 }
