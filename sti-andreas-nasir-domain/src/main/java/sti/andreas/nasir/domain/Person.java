@@ -18,7 +18,7 @@ public abstract class Person {
     public void setSsNumber(int ssNumber){
         this.ssNumber = ssNumber;
     }
-    public void setCourses(List<Course> courses){ this.courses = courses;}
+    public void setCourses(List<String> courses){ this.courses = courses;}
 
     public String getFirstName(){
         return firstName;

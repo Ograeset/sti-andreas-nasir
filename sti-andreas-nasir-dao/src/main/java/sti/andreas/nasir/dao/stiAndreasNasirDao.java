@@ -10,13 +10,13 @@ import java.util.List;
 
 public interface stiAndreasNasirDao {
 
-    Teacher addTeacher(String firstName, String lastName, int ssNumber, List<Course> courses, int hourlyWage);
+    boolean addTeacher(String firstName, String lastName, int ssNumber, List<String> courses, int hourlyWage);
 
     boolean deleteTeacher(int ssNumber);
 
     Teacher getTeacher(String courseId);
 
-    boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
+    boolean addStudent(String firstName, String lastName, int ssNumber, List<String> courses);
 
     boolean deleteStudent(int ssNumber);
 
@@ -24,7 +24,7 @@ public interface stiAndreasNasirDao {
 
     boolean deleteStudentCourse(int ssNumber, String course);
 
-    Course addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode);
+    boolean addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode);
 
     boolean deleteCourse(String courseCode);
 

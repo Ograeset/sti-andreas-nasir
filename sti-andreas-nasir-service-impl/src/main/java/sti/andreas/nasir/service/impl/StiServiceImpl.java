@@ -9,7 +9,7 @@ import java.util.List;
 import sti.andreas.nasir.dao.stiAndreasNasirDao;
 public class StiServiceImpl implements StiService {
     @Override
-    public boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses) {
+    public boolean addStudent(String firstName, String lastName, int ssNumber, List<String> courses) {
         stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
 
         if( daoObj.addStudent(firstName,lastName,ssNumber,courses) == true ){
