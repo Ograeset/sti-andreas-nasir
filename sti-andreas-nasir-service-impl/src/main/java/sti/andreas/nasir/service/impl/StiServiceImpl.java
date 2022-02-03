@@ -31,17 +31,33 @@ public class StiServiceImpl implements StiService {
 
     @Override
     public Student getStudent(int ssNumber) {
-
-        return null;
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+        Student student = daoObj.getStudent(ssNumber);
+        return student;
     }
 
     @Override
-    public boolean deleteStudentCourse(int ssNumber, String course) {
-        return false;
+    public boolean deleteStudentCourse(Student student, String courseToRemove) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+
+        if(daoObj.deleteStudentCourse(student.getSsNumber(), courseToRemove) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
     @Override
-    public boolean addStudentCourse(int ssNumber, String course) {
-        return false;
+    public boolean addStudentCourse(Student student, String courseToAdd) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+
+        if(daoObj.addStudentCourse(student, courseToAdd) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

@@ -14,7 +14,7 @@ public interface StiService {
 
     Student getStudent(int ssNumber);
 
-    boolean deleteStudentCourse(int ssNumber, String course);
+    boolean deleteStudentCourse(Student student, String courseToRemove);
 
-    boolean addStudentCourse(int ssNumber, String course);
+    boolean addStudentCourse(Student student, String courseToAdd);
 }

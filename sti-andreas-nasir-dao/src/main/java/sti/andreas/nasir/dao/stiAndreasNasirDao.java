@@ -26,6 +26,8 @@ public interface stiAndreasNasirDao {
 
     boolean addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode);
 
+    boolean addStudentCourse(Student student, String course);
+
     boolean deleteCourse(String courseCode);
 
 

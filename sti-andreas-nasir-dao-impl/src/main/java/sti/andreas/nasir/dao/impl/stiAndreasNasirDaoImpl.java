@@ -248,6 +248,13 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
                                                     ssNumber + "' AND courseId LIKE " + course;
         return true;
     }
+    
+    @Override
+    public boolean addStudentCourse(Student student, String course){
+        final String ADD_STUDENT_COURSE_RELATION_SQL = "INSERT INTO Student_Course(personNumber, courseId)" +
+                " VALUES (" + student.getSsNumber() + ", '" + course + "')";
+        return true;
+    }
 
     @Override
     public boolean addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode) {
