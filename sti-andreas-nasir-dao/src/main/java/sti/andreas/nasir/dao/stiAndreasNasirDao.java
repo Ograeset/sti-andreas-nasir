@@ -14,11 +14,13 @@ public interface stiAndreasNasirDao {
 
     boolean deleteTeacher(int ssNumber);
 
-    Student addStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
+    Teacher getTeacher(String courseId);
+
+    boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
 
     boolean deleteStudent(int ssNumber);
 
-    String getStudent(int ssNumber);
+    Student getStudent(int ssNumber);
 
     boolean deleteStudentCourse(int ssNumber, String course);
 

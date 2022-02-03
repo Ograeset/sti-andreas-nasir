@@ -61,7 +61,16 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
     }
 
     @Override
-    public Student addStudent(String firstName, String lastName, int ssNumber, List<Course> courses) {
+    public Teacher getTeacher(String courseId) {
+        final String GET_TEACHER_SQL = "SELECT * FROM Teacher " +
+                                        "JOIN Teacher_Course " +
+                                        "ON Teacher_Course.personNumber = Teacher.personNumber " +
+                                        "WHERE Teacher_Course.courseId = " + courseId;
+        return null;
+    }
+
+    @Override
+    public boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses) {
         final String ADD_STUDENT_SQL = "INSERT INTO Student(personNumber, firstName, lastName) VALUES(?, ?, ?)";
 
         try {
@@ -73,12 +82,12 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
             preparedStatement.setString(3, lastName);
 
             int rows = preparedStatement.executeUpdate();
+            return true;
 
         } catch (SQLException sqlException) {
             System.err.println("Sql error");
+            return false;
         }
-
-        return new Student(firstName, lastName, ssNumber, courses);
 
     }
 
@@ -100,12 +109,18 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
     }
 
     @Override
-    public String getStudent(int ssNumber) {
+    public Student getStudent(int ssNumber) {
         final String GET_STUDENT_SQL = "SELECT * FROM Student WHERE ID = " + ssNumber;
-        final String GET_STUDENT_COURSE_SQL = "SELECT * FROM Student_Course WHERE ID = " + ssNumber;
-        String firstName = "",lastName = "";
-        String courseId = "";
-        String stringToPrint = "";
+
+        final String GET_STUDENT_COURSE_SQL = "SELECT Student_Course.courseId, Course.credits, Course.lengthOfCourse" +
+                                            " FROM Student_Course" +
+                                            " JOIN Course ON (Student_Course.courseId = Course.courseId)"+
+                                            " WHERE Student_Course.personNumber = " + ssNumber;
+
+        String firstName,lastName;
+        String courseId;
+        int credits,lengthOfCourse;
+        List<Course> courses;
 
         try {
             connection = getConnection();
@@ -127,14 +142,17 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
             ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_COURSE_SQL);
 
             while(rs.next()){
-                courseId.concat(rs.getString(2) + " ");
+                 courseId = (rs.getString(1));
+                 credits = (rs.getInt(2));
+                 lengthOfCourse = (rs.getInt(3));
+                 // TODO Course course = new Course(credits,lengthOfCourse,)
             }
 
-        } catch (SQLException sqlE) {
+        } catch (SQLException sqlException) {
             System.err.println("Sql error");
         }
-        stringToPrint.concat(firstName + " " + lastName + " " + courseId);
-        return stringToPrint;
+    // TODO return Course
+    return null;
     }
     @Override
     public boolean deleteStudentCourse(int ssNumber, String course){

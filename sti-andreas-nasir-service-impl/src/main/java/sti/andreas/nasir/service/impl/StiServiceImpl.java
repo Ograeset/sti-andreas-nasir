@@ -10,16 +10,28 @@ import sti.andreas.nasir.dao.stiAndreasNasirDao;
 public class StiServiceImpl implements StiService {
     @Override
     public boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses) {
-        return true;
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+
+        if( daoObj.addStudent(firstName,lastName,ssNumber,courses) == true ){
+            return true;
+        }
+        else
+            return false;
     }
 
     @Override
     public boolean deleteStudent(int ssNumber) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+        if(daoObj.deleteStudent(ssNumber) == true){
+            return true;
+        }
+        else
         return false;
     }
 
     @Override
-    public String getStudent(int ssNumber) {
+    public Student getStudent(int ssNumber) {
+
         return null;
     }
 

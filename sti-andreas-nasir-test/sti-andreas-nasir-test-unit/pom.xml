@@ -35,11 +35,6 @@
         </dependency>
         <dependency>
             <groupId>org.sti</groupId>
-            <artifactId>sti-andreas-nasir-test</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.sti</groupId>
             <artifactId>sti-andreas-nasir-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
