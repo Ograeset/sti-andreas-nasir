@@ -16,7 +16,7 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
     private PreparedStatement preparedStatement = null;
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql//localhost:3306/SchoolsDB", "sti", "sti");
+        return DriverManager.getConnection("jdbc:mysql//localhost:3306/sti-mysql", "sti", "sti");
     }
 
 
@@ -100,28 +100,46 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
     }
 
     @Override
-    public Student getStudent(int ssNumber) {
+    public String getStudent(int ssNumber) {
         final String GET_STUDENT_SQL = "SELECT * FROM Student WHERE ID = " + ssNumber;
-        String firstName,lastName;
-        List<Course> courses;
+        final String GET_STUDENT_COURSE_SQL = "SELECT * FROM Student_Course WHERE ID = " + ssNumber;
+        String firstName = "",lastName = "";
+        String courseId = "";
+        String stringToPrint = "";
 
         try {
-
             connection = getConnection();
             preparedStatement = connection.prepareStatement(GET_STUDENT_SQL);
             ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_SQL);
 
             while(rs.next()){
-
                 firstName = (rs.getString(2));
                 lastName  = (rs.getString(3));
-
             }
 
         } catch (SQLException sqlException) {
             System.err.println("Sql error");
         }
 
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(GET_STUDENT_COURSE_SQL);
+            ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_COURSE_SQL);
+
+            while(rs.next()){
+                courseId.concat(rs.getString(2) + " ");
+            }
+
+        } catch (SQLException sqlE) {
+            System.err.println("Sql error");
+        }
+        stringToPrint.concat(firstName + " " + lastName + " " + courseId);
+        return stringToPrint;
+    }
+    @Override
+    public boolean deleteStudentCourse(int ssNumber, String course){
+        final String DELETE_STUDENT_COURSE_SQL = "DELETE FROM Student_Course WHERE ssNumber LIKE '" +
+                                                    ssNumber + "' AND courseId LIKE " + course;
         return true;
     }
 

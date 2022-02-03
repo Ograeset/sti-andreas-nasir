@@ -17,7 +17,9 @@ public interface stiAndreasNasirDao {
 
     boolean deleteStudent(int ssNumber);
 
-    Student getStudent(int ssNumber);
+    String getStudent(int ssNumber);
+
+    boolean deleteStudentCourse(int ssNumber, String course);
 
     Course addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode);
 
