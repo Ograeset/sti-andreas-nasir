@@ -13,14 +13,7 @@
 
     <artifactId>sti-andreas-nasir-domain</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.sti</groupId>
-            <artifactId>sti-andreas-nasir-dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+
 
 </project>

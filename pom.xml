@@ -32,6 +32,7 @@
         <junit.version>4.13.1</junit.version>
         <mysql.version>8.0.28</mysql.version>
         <spring.version>5.3.13</spring.version>
+        <project.version>1.0-SNAPSHOT</project.version>
     </properties>
 
     <modules>
@@ -50,26 +51,32 @@
             <dependency>
                 <groupId>se.sti</groupId>
                 <artifactId>sti-andreas-nasir-domain</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>se.sti</groupId>
                 <artifactId>sti-andreas-nasir-service</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>se.sti</groupId>
                 <artifactId>sti-andreas-nasir-service-impl</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>se.sti</groupId>
                 <artifactId>sti-andreas-nasir-test</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>se.sti</groupId>
                 <artifactId>sti-andreas-nasir-dao</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>se.sti</groupId>
                 <artifactId>sti-andreas-nasir-dao-impl</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
