@@ -17,4 +17,24 @@
         <module>sti-andreas-nasir-test-unit</module>
     </modules>
 
+    <dependencies>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+
+
+
+    </dependencies>
+
+
 </project>

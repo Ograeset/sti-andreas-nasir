@@ -31,7 +31,9 @@
         <!-- versions -->
         <junit.version>4.13.1</junit.version>
         <mysql.version>8.0.28</mysql.version>
-        <spring.version>5.3.13</spring.version>
+
+        <spring.version>5.3.15</spring.version>
+
         <project.version>1.0-SNAPSHOT</project.version>
     </properties>
 
@@ -49,34 +51,87 @@
         <dependencies>
             <!--modules-->
             <dependency>
-                <groupId>se.sti</groupId>
+                <groupId>org.sti</groupId>
                 <artifactId>sti-andreas-nasir-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>se.sti</groupId>
+                <groupId>org.sti</groupId>
                 <artifactId>sti-andreas-nasir-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>se.sti</groupId>
+                <groupId>org.sti</groupId>
                 <artifactId>sti-andreas-nasir-service-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>se.sti</groupId>
+                <groupId>org.sti</groupId>
                 <artifactId>sti-andreas-nasir-test</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>se.sti</groupId>
+                <groupId>org.sti</groupId>
                 <artifactId>sti-andreas-nasir-dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>se.sti</groupId>
+                <groupId>org.sti</groupId>
                 <artifactId>sti-andreas-nasir-dao-impl</artifactId>
                 <version>${project.version}</version>
+
+            </dependency>
+            <!--junit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!--Spring-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jcl</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+
             </dependency>
         </dependencies>
     </dependencyManagement>

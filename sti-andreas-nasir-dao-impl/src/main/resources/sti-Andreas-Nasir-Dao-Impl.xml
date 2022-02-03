@@ -5,7 +5,7 @@
                 http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="service1" class="sti.andreas.nasir.dao.impl.stiAndreasNasirDaoImpl" />
+    <bean id="sANDao" class="sti.andreas.nasir.dao.impl.stiAndreasNasirDaoImpl" />
 
 
 
