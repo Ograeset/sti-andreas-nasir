@@ -30,5 +30,7 @@ public interface stiAndreasNasirDao {
 
     boolean deleteCourse(String courseCode);
 
+    List<String> getStudentCourses(int ssNumber);
+
 
 }

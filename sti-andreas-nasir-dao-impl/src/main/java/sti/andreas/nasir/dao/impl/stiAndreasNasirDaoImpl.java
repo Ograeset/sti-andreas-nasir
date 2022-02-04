@@ -13,11 +13,23 @@ import java.util.List;
 public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
 
-    private Connection connection = null;
-    private PreparedStatement preparedStatement = null;
+    private Connection connection;
+    private Statement statement;
+    private PreparedStatement preparedStatement;
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql//localhost:3306/sti-mysql", "sti", "sti");
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql//localhost:3306/stidb", "sti", "sti");
+           statement = connection.createStatement();
+        }
+        catch (SQLException sqle){
+            System.out.println("connection not working");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 
 
@@ -210,8 +222,9 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
 
         try {
+            Connection con = getConnection();
             connection = getConnection();
-            preparedStatement = connection.prepareStatement(GET_STUDENT_SQL);
+            preparedStatement = con.prepareStatement(GET_STUDENT_SQL);
             ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_SQL);
 
             while(rs.next()){
@@ -221,6 +234,7 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
         } catch (SQLException sqlException) {
             System.err.println("Sql error");
+            System.out.println("get student not working");
         }
 
         final String GET_STUDENT_COURSE_SQL = "SELECT * FROM Student_Course WHERE personNumber = " + ssNumber;
@@ -257,6 +271,7 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
     }
 
     @Override
+
     public boolean addCourse(int credits, int lengthOfCourse, Teacher teacher, String courseCode) {
         boolean addOk;
         final String ADD_COURSE_SQL = "INSERT INTO Course(courseCode, credits, hours) VALUES(?, ?, ?)";
@@ -292,6 +307,7 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
             preparedStatement.executeUpdate();
             deleteCourseOk = true;
 
+
         } catch (SQLException sqlException) {
             System.err.println("Sql error");
             deleteCourseOk = false;
@@ -318,5 +334,53 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
         }
 
         return deletionDone;
+    }
+
+    @Override
+    public List<String> getStudentCourses(int ssNumber) {
+        final String GET_STUDENT_COURSE = "SELECT * FROM Student_Course WHERE personNumber = " + ssNumber;
+        List<String> courses = null;
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(GET_STUDENT_COURSE);
+            ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_COURSE);
+
+            while(rs.next()){
+                courses.add(rs.getString(2));
+
+            }
+>>>>>>> andreas
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+            deleteCourseOk = false;
+        }
+<<<<<<< HEAD
+
+        final String DELETE_STUDENT_COURSE_SQL = "DELETE FROM Student_Course WHERE courseId = " + courseCode;
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(DELETE_STUDENT_COURSE_SQL);
+
+            preparedStatement.executeUpdate();
+            deleteRelationOk = true;
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+            deleteRelationOk = false;
+        }
+        if (deleteCourseOk && deleteRelationOk){
+            deletionDone = true;
+        }
+        else {
+            deletionDone = false;
+        }
+
+        return deletionDone;
+=======
+        return courses;
+>>>>>>> andreas
     }
 }

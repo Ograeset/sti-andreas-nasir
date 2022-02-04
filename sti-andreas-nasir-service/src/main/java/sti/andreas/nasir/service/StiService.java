@@ -17,4 +17,10 @@ public interface StiService {
     boolean deleteStudentCourse(Student student, String courseToRemove);
 
     boolean addStudentCourse(Student student, String courseToAdd);
+
+
+    List<String> getStudentCourses(int ssNumber);
+
+    void run();
+
 }
