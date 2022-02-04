@@ -7,7 +7,7 @@ public abstract class Person {
     private String firstName;
     private String lastName;
     private int ssNumber;
-    private List<Course> courses;
+    private List<String> courses;
 
     public void setFirstName(String firstName){
         this.firstName = firstName;
@@ -29,5 +29,5 @@ public abstract class Person {
     public int getSsNumber() {
         return ssNumber;
     }
-    public List<Course> getCourses() {return courses; }
+    public List<String> getCourses() {return courses; }
 }

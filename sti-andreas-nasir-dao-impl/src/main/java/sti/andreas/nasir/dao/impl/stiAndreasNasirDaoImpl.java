@@ -13,11 +13,23 @@ import java.util.List;
 public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
 
-    private Connection connection = null;
-    private PreparedStatement preparedStatement = null;
+    private Connection connection;
+    private Statement statement;
+    private PreparedStatement preparedStatement;
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql//localhost:3306/sti-mysql", "sti", "sti");
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql//localhost:3306/stidb", "sti", "sti");
+           statement = connection.createStatement();
+        }
+        catch (SQLException sqle){
+            System.out.println("connection not working");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 
 
@@ -210,8 +222,9 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
 
         try {
+            Connection con = getConnection();
             connection = getConnection();
-            preparedStatement = connection.prepareStatement(GET_STUDENT_SQL);
+            preparedStatement = con.prepareStatement(GET_STUDENT_SQL);
             ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_SQL);
 
             while(rs.next()){
@@ -221,6 +234,7 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
         } catch (SQLException sqlException) {
             System.err.println("Sql error");
+            System.out.println("get student not working");
         }
 
         final String GET_STUDENT_COURSE_SQL = "SELECT * FROM Student_Course WHERE personNumber = " + ssNumber;
@@ -248,7 +262,7 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
                                                     ssNumber + "' AND courseId LIKE " + course;
         return true;
     }
-    
+
     @Override
     public boolean addStudentCourse(Student student, String course){
         final String ADD_STUDENT_COURSE_RELATION_SQL = "INSERT INTO Student_Course(personNumber, courseId)" +
@@ -318,5 +332,26 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
         }
 
         return deletionDone;
+    }
+
+    @Override
+    public List<String> getStudentCourses(int ssNumber) {
+        final String GET_STUDENT_COURSE = "SELECT * FROM Student_Course WHERE personNumber = " + ssNumber;
+        List<String> courses = null;
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(GET_STUDENT_COURSE);
+            ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_COURSE);
+
+            while(rs.next()){
+                courses.add(rs.getString(2));
+
+            }
+
+        } catch (SQLException sqlException) {
+            System.err.println("Sql error");
+        }
+        return courses;
     }
 }
