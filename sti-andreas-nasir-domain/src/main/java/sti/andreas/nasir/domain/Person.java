@@ -19,6 +19,14 @@ public abstract class Person {
         this.ssNumber = ssNumber;
     }
     public void setCourses(List<String> courses){ this.courses = courses;}
+    public void addCourse(String courseToAdd) {this.courses.add(courseToAdd);}
+    public void removeCourse(String courseToRemove){
+        for (int i = 0; i < courses.size(); i++) {
+            if (courses.get(i) == courseToRemove){
+                this.courses.remove(i);
+            }
+        }
+    }
 
     public String getFirstName(){
         return firstName;

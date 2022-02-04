@@ -15,6 +15,7 @@ public class TestDao {
     public void testGetConnection(){
         stiAndreasNasirDao stiandreasnasirdao = (stiAndreasNasirDao) context.getBean("sANDao");
         Assert.assertNotNull(stiandreasnasirdao);
+        Assert.assertNotNull(stiandreasnasirdao.getStudent(123456789));
 
     }
 

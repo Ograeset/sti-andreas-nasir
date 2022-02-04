@@ -10,13 +10,13 @@ public interface StiService {
 
     boolean addStudent(String firstName, String lastName, int ssNumber, List<String> courses);
 
-    boolean deleteStudent(int ssNumber);
+    void deleteStudent(int ssNumber);
 
     Student getStudent(int ssNumber);
 
-    boolean deleteStudentCourse(Student student, String courseToRemove);
+    void deleteStudentCourse(Student student, String courseToRemove);
 
-    boolean addStudentCourse(Student student, String courseToAdd);
+    void addStudentCourse(Student student, String courseToAdd);
 
     List<String> getStudentCourses(int ssNumber);
 

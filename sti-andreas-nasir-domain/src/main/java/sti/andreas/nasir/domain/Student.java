@@ -10,5 +10,4 @@ public class Student extends Person {
         setSsNumber(ssNumber);
         setCourses(courses);
     }
-
 }

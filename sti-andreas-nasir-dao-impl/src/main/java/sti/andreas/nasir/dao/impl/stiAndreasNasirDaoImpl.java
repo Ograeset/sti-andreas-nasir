@@ -13,20 +13,24 @@ import java.util.List;
 public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
 
-    private Connection connection;
-    private Statement statement;
-    private PreparedStatement preparedStatement;
+    private Connection connection = null;
+    private Statement statement = null;
+    private PreparedStatement preparedStatement = null;
 
     public Connection getConnection() throws SQLException {
 
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection("jdbc:mysql//localhost:3306/stidb", "sti", "sti");
            statement = connection.createStatement();
         }
         catch (SQLException sqle){
             System.out.println("connection not working");
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return connection;
@@ -222,9 +226,8 @@ public class stiAndreasNasirDaoImpl  implements stiAndreasNasirDao{
 
 
         try {
-            Connection con = getConnection();
             connection = getConnection();
-            preparedStatement = con.prepareStatement(GET_STUDENT_SQL);
+            preparedStatement = connection.prepareStatement(GET_STUDENT_SQL);
             ResultSet rs = preparedStatement.executeQuery(GET_STUDENT_SQL);
 
             while(rs.next()){

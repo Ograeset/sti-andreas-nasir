@@ -6,10 +6,13 @@ import sti.andreas.nasir.domain.Course;
 import sti.andreas.nasir.domain.Student;
 import sti.andreas.nasir.domain.Teacher;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface stiAndreasNasirDao {
 
+    public Connection getConnection() throws SQLException;
     boolean addTeacher(String firstName, String lastName, int ssNumber, List<String> courses, int hourlyWage);
 
     boolean deleteTeacher(int ssNumber);
