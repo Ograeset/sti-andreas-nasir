@@ -7,13 +7,14 @@ import sti.andreas.nasir.domain.Teacher;
 import java.util.List;
 
 public interface StiService {
-    boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses);
+
+    boolean addStudent(String firstName, String lastName, int ssNumber, List<String> courses);
 
     boolean deleteStudent(int ssNumber);
 
-    String getStudent(int ssNumber);
+    Student getStudent(int ssNumber);
 
-    boolean deleteStudentCourse(int ssNumber, String course);
+    boolean deleteStudentCourse(Student student, String courseToRemove);
 
-    boolean addStudentCourse(int ssNumber, String course);
+    boolean addStudentCourse(Student student, String courseToAdd);
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Student extends Person {
 
-    public Student (String firstName, String lastName, int ssNumber, List<Course> courses){
+    public Student (String firstName, String lastName, int ssNumber, List<String> courses){
         setFirstName(firstName);
         setLastName(lastName);
         setSsNumber(ssNumber);

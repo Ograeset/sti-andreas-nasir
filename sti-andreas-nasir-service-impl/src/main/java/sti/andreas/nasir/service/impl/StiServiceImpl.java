@@ -9,27 +9,55 @@ import java.util.List;
 import sti.andreas.nasir.dao.stiAndreasNasirDao;
 public class StiServiceImpl implements StiService {
     @Override
-    public boolean addStudent(String firstName, String lastName, int ssNumber, List<Course> courses) {
-        return true;
+    public boolean addStudent(String firstName, String lastName, int ssNumber, List<String> courses) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+
+        if( daoObj.addStudent(firstName,lastName,ssNumber,courses) == true ){
+            return true;
+        }
+        else
+            return false;
     }
 
     @Override
     public boolean deleteStudent(int ssNumber) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+        if(daoObj.deleteStudent(ssNumber) == true){
+            return true;
+        }
+        else
         return false;
     }
 
     @Override
-    public String getStudent(int ssNumber) {
-        return null;
+    public Student getStudent(int ssNumber) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+        Student student = daoObj.getStudent(ssNumber);
+        return student;
     }
 
     @Override
-    public boolean deleteStudentCourse(int ssNumber, String course) {
-        return false;
+    public boolean deleteStudentCourse(Student student, String courseToRemove) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+
+        if(daoObj.deleteStudentCourse(student.getSsNumber(), courseToRemove) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
     @Override
-    public boolean addStudentCourse(int ssNumber, String course) {
-        return false;
+    public boolean addStudentCourse(Student student, String courseToAdd) {
+        stiAndreasNasirDao daoObj = new stiAndreasNasirDaoImpl();
+
+        if(daoObj.addStudentCourse(student, courseToAdd) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

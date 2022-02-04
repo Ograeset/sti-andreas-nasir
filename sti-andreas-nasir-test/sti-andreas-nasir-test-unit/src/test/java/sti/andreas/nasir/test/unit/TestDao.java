@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import sti.andreas.nasir.dao.stiAndreasNasirDao;
+import sti.andreas.nasir.test.*;
 
 public class TestDao {
 
